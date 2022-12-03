@@ -1,6 +1,8 @@
-# Premiers pas en typescript
+# Premiers pas en TypeScript
 
-[Formation typescript](https://grafikart.fr/formations/typescript) par le bro Grafikart. 💜
+[Formation TypeScript](https://grafikart.fr/formations/typescript) par le bro Grafikart. 💜
+
+[Documentation TypeScript](https://www.typescriptlang.org/docs/).
 
 ## Installer
 
