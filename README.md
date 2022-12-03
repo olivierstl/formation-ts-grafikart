@@ -21,4 +21,5 @@ Ces commandes servent s'il n'y au aucun fichier de configuration `tsconfig.json`
 - `compilerOptions`: objet des paramètres de compilation
   - `outDir`: correspond à l'option `--outDir`. Répertoire de sortie
   - `target`: version de JS vers laquelle le fichier est compilé
+  - `noEmitOnError`: ne compile pas le code en cas d'erreur
 - `files`: tableau des objets à compiler
