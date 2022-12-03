@@ -84,7 +84,7 @@ const elem = document.querySelector('#some-id') as HTMLButtonElement
 const elem = <HTMLButtonElement>document.querySelector('#some-id')
 ```
 
-⚠️ Attention : l'affirmation de type a aussi pour effet d'écarte les possibilités que le type soit null. Dans notre exemple, ça revient à dire que l'élément existe à 100% dans le
+⚠️ Attention : l'affirmation de type a aussi pour effet d'écarter les possibilités que le type soit null. Dans notre exemple, ça revient à dire que l'élément existe à 100% dans le code.
 
 ### Union
 
@@ -92,6 +92,32 @@ Le [type union](https://www.typescriptlang.org/docs/handbook/2/everyday-types.ht
 
 ```typescript
 function printId(id: number | string) { ... }
+```
+
+## Type narrowing
+
+L'écriture de notre code permet à TypeScript de déduire certaines informations sur l'état du type de nos variables.
+
+```typescript
+// type HTMLSpanElement | null | undefined
+const span = counter?.querySelector('span')
+
+if (span) {
+  // type HTMLSpanElement uniquement
+  span.innerText = i.toString()
+}
+```
+
+S'applique aussi aux "union types"
+
+```typescript
+function printId(id: string | number) {
+  if (typeof id === "string") {
+    // TS déduit le type string uniquement
+  } else {
+    // TS déduit le type number uniquement
+  }
+}
 ```
 
 ## Documentation TypeScript
