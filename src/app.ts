@@ -1,9 +1,14 @@
 const counter = document.querySelector('#counter')
 let i = 0
 
-const increment = (e) => {
+const n = 3
+
+const increment = (e: Event) => {
   i++
-  counter.querySelector('span').innerText = i.toString()
+  const span = counter?.querySelector('span')
+  if (span) {
+    span.innerText = i.toString()
+  }
 }
 
-counter.addEventListener('click', increment)
+counter?.addEventListener('click', increment)
