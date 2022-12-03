@@ -65,7 +65,7 @@ const cb: (e: MouseEvent) => void = (e) => { ... }
 
 Si on ne type pas, TS va comprendre tout seul les types des variables qui ont déjà une valeur assignée.
 
-⚠️ Attention quand une variable constante est définie avec une valeur, le type automatique ne sera pas le type de la valeur mais la valeur elle même. Il s'agit d'un [literal](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types).
+⚠️ Attention : quand une variable constante est définie avec une valeur, le type automatique ne sera pas le type de la valeur mais la valeur elle même. Il s'agit d'un [literal](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types).
 
 ### Type assertion
 
@@ -83,6 +83,8 @@ On utilise l'affirmation de type ([type assertion](https://www.typescriptlang.or
 const elem = document.querySelector('#some-id') as HTMLButtonElement
 const elem = <HTMLButtonElement>document.querySelector('#some-id')
 ```
+
+⚠️ Attention : l'affirmation de type a aussi pour effet d'écarte les possibilités que le type soit null. Dans notre exemple, ça revient à dire que l'élément existe à 100% dans le
 
 ### Union
 
