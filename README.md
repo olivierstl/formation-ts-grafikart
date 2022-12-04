@@ -120,6 +120,76 @@ function printId(id: string | number) {
 }
 ```
 
+## Alias et Generics
+
+### Alias
+
+Pour ne pas se répéter, il est possible de déclarer des types qui vont servir d'alias.
+
+```typescript
+type User = { firstname: string, lastname: string }
+const user: User = { firstname: 'John', lastname: 'Doe' }
+```
+
+Un type peut dépendre ou être déduit d'un autre d'un autre.
+
+```typescript
+type User = { firstname: string, lastname: string }
+type P = keyof User
+
+const firstname: P = 'lastname' // ok
+const lastname: P = 'hello' // not ok
+
+type Username = User['firstname'] // déduit le type string
+```
+
+Il est possible de déduire le type depuis une variable. On réservera cet usage dans des cas très particuliers, l'intérêt de TS étant de typer en amont.
+
+```typescript
+const newUser = {
+  firstname: 'Jane',
+  lastname: 'Doe',
+  age: 42
+}
+
+// Déduit { firstname: string, lastname: string, age: number }
+type newUser = typeof newUser
+```
+
+### Generics
+
+Les generics permettent de donner des "paramètres" à nos types.
+
+```typescript
+function identity<T>(arg: T): T { ... }
+
+// type number appliqué au paramètre et au retour
+const id = identity<number>(3)
+
+// pas de type précisé, TS va déduire 3 comme type
+const id = identity(3)
+```
+
+Il est possible de créer des alias qui contiennent des generics.
+
+```typescript
+type Identity<T> = (arg: T) => T
+
+
+function identity: Identity (arg) { ... }
+```
+
+Les generics permettent d'étendre le type générique définit pour qu'il conprenne d'autres paramètres
+
+```typescript
+function consoleSize<T extends { length: number }>(arg: T): T {
+  console.log(arg.length)
+  return arg
+}
+
+const arrr = consoleSize([ 2, 3 ])
+```
+
 ## Documentation TypeScript
 
 - [Documentation globale](https://www.typescriptlang.org/docs/).

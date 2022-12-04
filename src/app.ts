@@ -1,4 +1,5 @@
-const counter = document.querySelector('#counter')
+// D'après la doc "querySelector" prend déjà un generic "Element" par défaut. On peut le modifier pour être plus précis
+const counter = document.querySelector<HTMLButtonElement>('#counter')
 let i = 0
 
 const n = 3
